@@ -5806,7 +5806,7 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
-body {
+/*body {
   font-size: 16px; }
 
 header {
@@ -5823,8 +5823,8 @@ header h1 {
 
 main {
   padding: 100px 0; }
-
-main .sidebar-left form {
+*/
+/*main .sidebar-left form {
   margin-bottom: 20px;
   padding: 30px;
   background: #eaeaea;
@@ -5842,4 +5842,4 @@ main .sidebar-left .welcome-message {
 main .main-content .registrants {
   padding: 30px;
   background: #eaeaea;
-  border: 1px solid #ccc; }
+  border: 1px solid #ccc; }*/

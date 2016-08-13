@@ -49,7 +49,7 @@ post "/" do
   contents = File.open("./test-users.json").read
   parsed_contents = JSON.parse(contents)
   File.delete("./test-users.json")
-  parsed_contents["guests"] << {"email": params["email"], "name": params["name"]}
+  parsed_contents["guests"] << {"email" => params["email"], "name" => params["name"]}
   File.open("./test-users.json", "w+") do |f|
     f.puts JSON.pretty_generate(parsed_contents)
   end

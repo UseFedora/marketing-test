@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Teachable Test</title>
     <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/general.css" rel="stylesheet">
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -18,30 +19,27 @@
     </header>
     <main>
 	    <div class="container">
-	    	<div class="row">
-	    		<div class="sidebar-left col-xs-12 col-sm-4">
-		    		
-	    			<form action="action_page.php">
-						  <input type="text" name="username" value="username">
-						  <input type="text" name="email" value="email">
+	    	<div class="row">	    		
+          <div class="sidebar-left col-xs-12 col-sm-4">
+		    		<h1>Please Register</h1>
+	    			<form action="/" method="POST" id="registrantForm">
+						  <input type="text" name="name" placeholder="username">
+						  <input type="text" name="email" placeholder="email">
 						  <input type="submit" value="Submit">
-						</form>
-	    				
+						</form>		
     			</div>
 	    		<div class="main-content col-xs-12 col-sm-8">
-	    			<div class="registrants">
-		    			{registrants}
+	    			<div class="registrants" id="displayRegistrants">
+		    			<h1>Registerants</h1>
 	    			</div>
 	    		</div>
 	    	</div>
 	    </div>
     </main>
-    <footer>
-	    
-    </footer>
-
+    <footer></footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/functionality.js"></script>
   </body>
 </html>
