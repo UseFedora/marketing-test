@@ -1,20 +1,38 @@
 // namespace? 
 window.onload = function() { 
+  var request = new XMLHttpRequest();
 
-  var request = new XMLHttpRequest(); 
-  
+  ///////// Event Listeners /////////
+  document.querySelector("#registrantForm").addEventListener("submit", function(){
+     User.validate();
+  });
+  //clear err mssg for invalid form submission when user clicks into a field to correct err
+  document.querySelector("#register-email").addEventListener("click", function (event) {
+    document.querySelector("#form-error").innerHTML = "";
+  });
+  document.querySelector("#register-name").addEventListener("click", function (event) {
+    document.querySelector("#form-error").innerHTML = "";
+  });  
+
+
+  /////////// modules /////////// 
   var Pageload = (function(){ 
-    var registrantForm = document.querySelector("#registrantForm"),
-        registrantsDiv = document.querySelector("#displayRegistrants"),
-        deleteButtons = document.getElementsByClassName("delete-registrant-button");
+    var registrantForm  = document.querySelector("#registrantForm"),
+        registrantsDiv  = document.querySelector("#displayRegistrants"),
+        deleteButtons   = document.getElementsByClassName("delete-registrant-button");
 
-    request.onreadystatechange = function() {
+    request.onload = function() {
       var registrantList = JSON.parse(request.responseText);
-      if (request.readyState == 4 && request.status == 200) {       
+      
+      if (request.status == 200) {       
           displayRegistrants(registrantList);
-      } else {
-        //error handling?
-      }
+        } 
+      else {
+        var pageError = document.createElement("div");
+        pageError.innerHTML = "Uh oh! SOmething went wrong. Please refresh your browser.";
+
+        document.querySelector("#displayRegistrants").append(pageError);
+        }
     }; 
 
     request.open("GET", "http://localhost:9292", true);
@@ -24,10 +42,10 @@ window.onload = function() {
     function displayRegistrants(arry){
       if(typeof arry === 'object' && arry.guests.length) {
         for(var i = 0; i < arry.guests.length; i++) {
-          var container = document.createElement("div"),
-              hamburger = document.createElement("button"),        
-              registrantInfo = document.createElement("div"),
-              deleteUser = document.createElement("button");
+          var container       = document.createElement("div"),
+              hamburger       = document.createElement("button"),        
+              registrantInfo  = document.createElement("div"),
+              deleteUser      = document.createElement("button");
      
           container.className = "registrant-div row";
 
@@ -52,14 +70,26 @@ window.onload = function() {
       }
     }
   })();
-  
 
-  var User = (function(){
 
+  var User = (function(){     
+    function vaidateForm() {
+      var error_field = document.querySelector("#form-error"),
+          nameInput   = document.querySelector("#register-name").value,
+          emailInput  = document.querySelector("#register-email").value,
+          regex       = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+
+      //since safari does not render html5 form validation error mssgs
+      if(!regex.test(emailInput)  || emailInput.length === 0 || nameInput.length === 0) {
+          error_field.innerHTML = "You must provide a name and valid email.";
+          event.preventDefault();
+          return false;
+        }
+    }
     function deleteRegistrant(){
-      var attribute = this.getAttribute("data"),
+      var attribute     = this.getAttribute("data"),
           registrantDiv = this.parentNode,
-          parent = this.parentNode.parentNode;
+          parent        = this.parentNode.parentNode;
   
         request.open("DELETE", "http://localhost:9292/" + attribute, true);
         request.send();
@@ -71,14 +101,17 @@ window.onload = function() {
     } 
 
     return {
+      validate: vaidateForm,
       delete: deleteRegistrant
     };
   })();
 
 
-  var Sort = (function(){})();
 
+/////////// jQuery sort ///////////
+  $( ".registrants" ).sortable({
+    appendTo: document.body,
+    axis: "y"
+  });
 
-
-  Pageload();
 };
