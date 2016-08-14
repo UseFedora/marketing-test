@@ -30,7 +30,11 @@ header {
 .registrant-info {
   float: left;
 }
-
+.error {
+  color: red;
+  text-align: center;
+  width: 100%;
+}
 /*these were found in style.css*/
 body {
   font-size: 16px; }
