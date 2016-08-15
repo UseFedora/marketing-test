@@ -1,11 +1,15 @@
 require 'sinatra'
 require "sinatra/param"
 require "json"
+require "sass/plugin/rack"
 
 set :raise_sinatra_param_exceptions, true
 
 disable :show_exceptions
 disable :raise_errors
+
+Sass::Plugin.options[:style] = :compressed
+use Sass::Plugin::Rack
 
 helpers do
   def protected!

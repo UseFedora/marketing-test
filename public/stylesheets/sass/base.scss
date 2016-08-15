@@ -1,0 +1,23 @@
+$accent-green: #00A773;
+$light-grey: #FAFAFA;
+$border: 1px solid #C3C3C3;
+
+
+
+body {
+  background-color: #F8F8F5;
+}
+input {
+  @include border-radius; 
+  border: $border;
+  padding: 10px;
+}
+.hidden {
+  visibility: hidden;
+}
+.error {
+  color: red;
+  text-align: center;
+  width: 100%;
+}
+

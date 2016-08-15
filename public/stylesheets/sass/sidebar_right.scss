@@ -1,0 +1,58 @@
+main {
+  .main-content {
+    .registrants {
+      @include border-radius;
+      background: #fff;
+      border: $border;
+      padding: 0 30px 30px;
+      h2{
+        font-size: 1.65em;
+        margin-top: 0;
+        padding: 30px 0;
+      } 
+      .no-registrants {
+        @include border-radius;
+        border: 2px dashed #C3C3C3;
+        height: 143px;
+        p {
+          color: #a5a5a5;
+          font-size: 1.4em;
+          font-weight: 200;
+          padding-top: 52px;
+          text-align: center;
+        }
+      }    
+      .registrant-div {
+        padding: 30px;
+        background: #f5f5f5;
+        border: 1px solid #ccc;
+        margin-bottom: 15px;
+        padding: 20px;
+        
+        .hamburger {
+          float: left;
+          font-size: 2em;
+        }        
+        .hamburger, .delete-registrant-button {
+          background: none;
+          border: 0;
+          color: #000;
+          cursor: pointer;
+          font-weight: bold;
+          outline: none;
+          line-height: 25px;
+        }
+        .registrant-info {
+          cursor: move;
+          float: left;
+        }         
+        .delete-registrant-button {
+          float: right;
+          font-size: 4.5em;
+          padding-top :13px;
+        }
+      }
+    } 
+  } 
+}
+

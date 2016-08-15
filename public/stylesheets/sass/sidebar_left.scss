@@ -1,0 +1,27 @@
+main {
+  .sidebar-left {
+    
+    form {
+      @include border-radius;
+      background: #fff;
+      border: $border;
+      margin-bottom: 20px;  
+      padding: 0 30px 30px;
+        h2 {
+          font-size: 1.65em;
+          margin: 30px 0px;
+        }  
+        input {
+          margin-bottom: 10px;      
+          width: 100%;
+        }
+      .registrant-form-bth {
+        background: $accent-green;
+        color: #fff;
+        width: 50%;
+      }
+    }
+  } 
+}
+
+

@@ -1,22 +1,23 @@
 // namespace? 
 window.onload = function() { 
   var request = new XMLHttpRequest();
+  var registrantCount;
 
   ///////// Event Listeners /////////
   document.querySelector("#registrantForm").addEventListener("submit", function(){
      User.validate();
   });
-  //clear err mssg for invalid form submission when user clicks into a field to correct err
+  //clear err mssg for invalid form submission when user clicks into either field to correct err
   document.querySelector("#register-email").addEventListener("click", function (event) {
-    document.querySelector("#form-error").innerHTML = "";
+    document.querySelector("#registrant-form-error").innerHTML = "";
   });
   document.querySelector("#register-name").addEventListener("click", function (event) {
-    document.querySelector("#form-error").innerHTML = "";
+    document.querySelector("#registrant-form-error").innerHTML = "";
   });  
 
 
   /////////// modules /////////// 
-  var Pageload = (function(){ 
+  var Display = (function(){ 
     var registrantForm  = document.querySelector("#registrantForm"),
         registrantsDiv  = document.querySelector("#displayRegistrants"),
         deleteButtons   = document.getElementsByClassName("delete-registrant-button");
@@ -24,7 +25,8 @@ window.onload = function() {
     request.onload = function() {
       var registrantList = JSON.parse(request.responseText);
       
-      if (request.status == 200) {       
+      if (request.status == 200) {
+          registrantCount = registrantList.guests.length;    
           displayRegistrants(registrantList);
         } 
       else {
@@ -38,9 +40,20 @@ window.onload = function() {
     request.open("GET", "http://localhost:9292", true);
     request.send();
 
+    function generateNoRegistrantsDiv() {
+        var div = document.createElement("div");
+        var p = document.createElement("p");
+        p.innerHTML = "There are no registrants"
+        div.className = "no-registrants";
+
+        div.appendChild(p);
+        document.querySelector("#displayRegistrants").appendChild(div);
+    }
+
     //build out list of registrants
     function displayRegistrants(arry){
       if(typeof arry === 'object' && arry.guests.length) {
+            
         for(var i = 0; i < arry.guests.length; i++) {
           var container       = document.createElement("div"),
               hamburger       = document.createElement("button"),        
@@ -67,14 +80,21 @@ window.onload = function() {
           container.appendChild(deleteUser);
           registrantsDiv.appendChild(container);
         }
+      } 
+      else {
+        generateNoRegistrantsDiv();
       }
     }
+
+    return {
+      noRegistrants: generateNoRegistrantsDiv
+    };
   })();
 
 
   var User = (function(){     
     function vaidateForm() {
-      var error_field = document.querySelector("#form-error"),
+      var error_field = document.querySelector("#registrant-form-error"),
           nameInput   = document.querySelector("#register-name").value,
           emailInput  = document.querySelector("#register-email").value,
           regex       = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
@@ -84,7 +104,7 @@ window.onload = function() {
           error_field.innerHTML = "You must provide a name and valid email.";
           event.preventDefault();
           return false;
-        }
+        } 
     }
     function deleteRegistrant(){
       var attribute     = this.getAttribute("data"),
@@ -97,6 +117,14 @@ window.onload = function() {
 
       function remove(){
         parent.removeChild(registrantDiv);
+
+        //reveal the no-registrant div again if user deletes last registrant
+        if(registrantCount > 0) {
+          registrantCount -= 1;
+        }
+        if(registrantCount === 0) {
+          Display.noRegistrants();
+        }
       }
     } 
 
