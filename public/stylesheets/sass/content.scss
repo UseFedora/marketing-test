@@ -1,9 +1,33 @@
 main {
   padding: 100px 0;
 
-  .welcome-message {
-    background: $accent-green;
-    border: 1px solid #ccc;      
+  .signup-mssg {
+    @include border-radius;
+    background-color: $accent-green;
+    margin: 0 0 30px 0;
     padding: 30px;
+
+    p {
+      color: white;
+      font-size: 22px;
+      font-weight: 100;
+      letter-spacing: 2px;
+      margin-bottom: 0;
+      text-align: center;
+    }
+    span {
+      bottom: 5px;
+      color: rgba(221, 221, 221, 0.77);
+      font-size: 3em;
+      font-weight: 700;
+      left: 30px;
+      line-height: 0;
+      position: relative;
+      text-align: right;
+
+      @media(min-width: 525px) {
+        top: 20px;
+      }
+    }
   }
 }

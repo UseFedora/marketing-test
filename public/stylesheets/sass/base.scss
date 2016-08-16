@@ -3,12 +3,23 @@ $light-grey: #FAFAFA;
 $border: 1px solid #C3C3C3;
 
 
+$h2-grey: #434343;
+
+//screen sizes
+$xsmall-screen: 410px;
+$small-screen: 640px;
+$medium-screen: 960px;
+
 
 body {
   background-color: #F8F8F5;
 }
+p {
+  letter-spacing: 1px;
+  font-weight: 200;
+}
 input {
-  @include border-radius; 
+  @include border-radius;
   border: $border;
   padding: 10px;
 }
@@ -17,21 +28,7 @@ input {
 }
 .error {
   color: red;
-  padding-top: 10px;  
+  padding-top: 10px;
   text-align: center;
   width: 100%;
-}
-
-.signup-mssg {
-  @include border-radius;
-  background-color: $accent-green;
-  height: 60px;
-  margin: 0;
-  margin-bottom: 30px;
-  p {
-    text-align: center;
-    padding: 15px;
-    font-size: 22px;
-    color: white;
-  }
 }

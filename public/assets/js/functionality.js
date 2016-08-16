@@ -4,6 +4,7 @@ window.onload = function() {
       renderWelcome,
       xmlrequest = new XMLHttpRequest();
 
+  //reset form on page load (in case of using the back button)
   document.querySelector("#register-name").value  = "";
   document.querySelector("#register-email").value = "";
 
@@ -14,8 +15,6 @@ window.onload = function() {
   } else {
     renderWelcome = true;
   }
-
-
 
   ///////// Event Listeners /////////
   document.querySelector("#registrantForm").addEventListener("submit", function() {
@@ -34,8 +33,8 @@ window.onload = function() {
   /////////// modules /////////// 
   var Display = (function() { 
     var registrantForm  = document.querySelector("#registrantForm"),
-        registrantsDiv  = document.querySelector("#displayRegistrants"),
-        deleteButtons   = document.getElementsByClassName("delete-registrant-button");
+        registrantsDiv  = document.querySelector("#displayRegistrants");
+        // deleteButtons   = document.getElementsByClassName("delete-registrant-button");
 
     xmlrequest.onload = function() {
       var registrantList = JSON.parse(xmlrequest.responseText);
@@ -70,15 +69,27 @@ window.onload = function() {
       var name = document.cookie.split("name=")[1];
         
         if(name.length > 0 && renderWelcome){
-          var displayDiv  = document.createElement("div"),
+          var closeButton = document.createElement("span"),
+              container   = document.querySelector(".container"),
+              displayDiv  = document.createElement("div"),
               displayText = document.createElement("p"),
               mainContent = document.querySelector(".main-content");
-
+              
+          closeButton.className = "col-xs-12 push-md-1";
+          closeButton.innerHTML = "&#735;";
           
           displayDiv.className  = "row signup-mssg";
+          
+          displayText.className = "col-xs-12 pull-md-11";
           displayText.innerHTML = "Thank you for registering " + name; 
-          displayDiv.appendChild(displayText); 
-          document.querySelector(".container").insertBefore(displayDiv, mainContent);
+          
+          displayDiv.appendChild(closeButton);
+          displayDiv.appendChild(displayText);
+          container.insertBefore(displayDiv, mainContent);
+
+          closeButton.addEventListener("click", function() {
+            container.removeChild(displayDiv);
+          });
         }
     }
 
@@ -94,13 +105,13 @@ window.onload = function() {
      
           container.className = "registrant-div row";
 
-          hamburger.className = "hamburger col-sx-2 col-sm-1";
+          hamburger.className = "hamburger pull-xs-1 col-sm-1";
           hamburger.innerHTML = "&#9776";
 
-          registrantInfo.className = "registrant-info col-sx-8 col-sm-10";
-          registrantInfo.innerHTML = "<h4>" +  arry.guests[i].name + " (" + arry.guests[i].email + ")" + "</h4>";
+          registrantInfo.className = "registrant-info push-xs-12 col-sm-10";
+          registrantInfo.innerHTML = "<p><span>" + arry.guests[i].name + "</span> <span>(" + arry.guests[i].email + ")" + "</span></p>";
 
-          deleteUser.className = "delete-registrant-button col-sx-2 col-sm-1";
+          deleteUser.className = "delete-registrant-button pull-xs-1 col-sm-1";
           deleteUser.innerHTML = "&#735;";
           // now add the data we will need to delete the correct user
           deleteUser.setAttribute('data', arry.guests[i].email);
@@ -108,8 +119,10 @@ window.onload = function() {
           deleteUser.addEventListener('click', User.delete);
 
           container.appendChild(hamburger);
-          container.appendChild(registrantInfo);
           container.appendChild(deleteUser);
+          container.appendChild(registrantInfo);
+          
+          
           registrantsDiv.appendChild(container);
         }      
         registerMssg();
@@ -178,6 +191,5 @@ window.onload = function() {
     appendTo: document.body,
     axis: "y"
   });
-
 
 };
