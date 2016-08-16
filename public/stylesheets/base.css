@@ -13,7 +13,7 @@ Error: Undefined mixin 'border-radius'.
 13:   padding: 10px;
 14: }
 15: .hidden {
-16:   visibility: hidden;
+16:   display: none;
 
 Backtrace:
 ./public/stylesheets/sass/base.scss:11:in `border-radius'
@@ -89,4 +89,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined mixin 'border-radius'.\A         on line 11 of ./public/stylesheets/sass/base.scss, in `border-radius'\A         from line 11 of ./public/stylesheets/sass/base.scss\A \A 6: \A 7: body {\A 8:   background-color: #F8F8F5;\A 9: }\A 10: input {\A 11:   @include border-radius; \A 12:   border: $border;\A 13:   padding: 10px;\A 14: }\A 15: .hidden {\A 16:   visibility: hidden;"; }
+  content: "Error: Undefined mixin 'border-radius'.\A         on line 11 of ./public/stylesheets/sass/base.scss, in `border-radius'\A         from line 11 of ./public/stylesheets/sass/base.scss\A \A 6: \A 7: body {\A 8:   background-color: #F8F8F5;\A 9: }\A 10: input {\A 11:   @include border-radius; \A 12:   border: $border;\A 13:   padding: 10px;\A 14: }\A 15: .hidden {\A 16:   display: none;"; }

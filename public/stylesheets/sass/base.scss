@@ -13,11 +13,25 @@ input {
   padding: 10px;
 }
 .hidden {
-  visibility: hidden;
+  display: none;
 }
 .error {
   color: red;
+  padding-top: 10px;  
   text-align: center;
   width: 100%;
 }
 
+.signup-mssg {
+  @include border-radius;
+  background-color: $accent-green;
+  height: 60px;
+  margin: 0;
+  margin-bottom: 30px;
+  p {
+    text-align: center;
+    padding: 15px;
+    font-size: 22px;
+    color: white;
+  }
+}

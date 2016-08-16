@@ -1,31 +1,46 @@
 // namespace? 
 window.onload = function() { 
-  var request = new XMLHttpRequest();
-  var registrantCount;
+  var registrantCount,
+      renderWelcome,
+      xmlrequest = new XMLHttpRequest();
+
+  document.querySelector("#register-name").value  = "";
+  document.querySelector("#register-email").value = "";
+
+  // will remove the welcome registrant mssg bar on page refresh, render it otherwise
+  //chrome >= 6, IE >= 9, Firefox >= 7, safari >= 8, opera >= 15
+  if (performance.navigation.type  === 1 ) {
+    renderWelcome = false;
+  } else {
+    renderWelcome = true;
+  }
+
+
 
   ///////// Event Listeners /////////
-  document.querySelector("#registrantForm").addEventListener("submit", function(){
-     User.validate();
+  document.querySelector("#registrantForm").addEventListener("submit", function() {
+    User.validate();
   });
-  //clear err mssg for invalid form submission when user clicks into either field to correct err
+  //clear err mssg for invalid form submission when user clicks into either field
   document.querySelector("#register-email").addEventListener("click", function (event) {
     document.querySelector("#registrant-form-error").innerHTML = "";
   });
   document.querySelector("#register-name").addEventListener("click", function (event) {
     document.querySelector("#registrant-form-error").innerHTML = "";
-  });  
+  }); 
+
 
 
   /////////// modules /////////// 
-  var Display = (function(){ 
+  var Display = (function() { 
     var registrantForm  = document.querySelector("#registrantForm"),
         registrantsDiv  = document.querySelector("#displayRegistrants"),
         deleteButtons   = document.getElementsByClassName("delete-registrant-button");
 
-    request.onload = function() {
-      var registrantList = JSON.parse(request.responseText);
+    xmlrequest.onload = function() {
+      var registrantList = JSON.parse(xmlrequest.responseText);
       
-      if (request.status == 200) {
+      if (xmlrequest.status == 200) {
           registrantCount = registrantList.guests.length;    
           displayRegistrants(registrantList);
         } 
@@ -37,21 +52,38 @@ window.onload = function() {
         }
     }; 
 
-    request.open("GET", "http://localhost:9292", true);
-    request.send();
+    xmlrequest.open("GET", "http://localhost:9292", true);
+    xmlrequest.send();
 
     function generateNoRegistrantsDiv() {
-        var div = document.createElement("div");
-        var p = document.createElement("p");
-        p.innerHTML = "There are no registrants"
-        div.className = "no-registrants";
+      var div = document.createElement("div");
+      var p = document.createElement("p");
+      
+      p.innerHTML = "There are no registrants";
+      div.className = "no-registrants";
 
-        div.appendChild(p);
-        document.querySelector("#displayRegistrants").appendChild(div);
+      div.appendChild(p);
+      document.querySelector("#displayRegistrants").appendChild(div);
+    }
+
+    function registerMssg() {
+      var name = document.cookie.split("name=")[1];
+        
+        if(name.length > 0 && renderWelcome){
+          var displayDiv  = document.createElement("div"),
+              displayText = document.createElement("p"),
+              mainContent = document.querySelector(".main-content");
+
+          
+          displayDiv.className  = "row signup-mssg";
+          displayText.innerHTML = "Thank you for registering " + name; 
+          displayDiv.appendChild(displayText); 
+          document.querySelector(".container").insertBefore(displayDiv, mainContent);
+        }
     }
 
     //build out list of registrants
-    function displayRegistrants(arry){
+    function displayRegistrants(arry) {
       if(typeof arry === 'object' && arry.guests.length) {
             
         for(var i = 0; i < arry.guests.length; i++) {
@@ -79,7 +111,8 @@ window.onload = function() {
           container.appendChild(registrantInfo);
           container.appendChild(deleteUser);
           registrantsDiv.appendChild(container);
-        }
+        }      
+        registerMssg();
       } 
       else {
         generateNoRegistrantsDiv();
@@ -91,31 +124,35 @@ window.onload = function() {
     };
   })();
 
-
-  var User = (function(){     
+  var User = (function() {  
     function vaidateForm() {
       var error_field = document.querySelector("#registrant-form-error"),
           nameInput   = document.querySelector("#register-name").value,
           emailInput  = document.querySelector("#register-email").value,
           regex       = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-
+      
       //since safari does not render html5 form validation error mssgs
       if(!regex.test(emailInput)  || emailInput.length === 0 || nameInput.length === 0) {
           error_field.innerHTML = "You must provide a name and valid email.";
           event.preventDefault();
           return false;
-        } 
+        }
+      
+      //create a cookie to grab the name of the last registered user
+      document.cookie = "name = " + nameInput;
+      
+      welcomeMssg = true;         
     }
-    function deleteRegistrant(){
+    function deleteRegistrant() {
       var attribute     = this.getAttribute("data"),
           registrantDiv = this.parentNode,
           parent        = this.parentNode.parentNode;
   
-        request.open("DELETE", "http://localhost:9292/" + attribute, true);
-        request.send();
-        request.onload = remove();
+        xmlrequest.open("DELETE", "http://localhost:9292/" + attribute, true);
+        xmlrequest.send();
+        xmlrequest.onload = remove();
 
-      function remove(){
+      function remove() {
         parent.removeChild(registrantDiv);
 
         //reveal the no-registrant div again if user deletes last registrant
@@ -136,10 +173,11 @@ window.onload = function() {
 
 
 
-/////////// jQuery sort ///////////
+  /////////// jQuery sort ///////////
   $( ".registrants" ).sortable({
     appendTo: document.body,
     axis: "y"
   });
+
 
 };

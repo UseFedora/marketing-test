@@ -2,6 +2,7 @@ require 'sinatra'
 require "sinatra/param"
 require "json"
 require "sass/plugin/rack"
+require 'pry'
 
 set :raise_sinatra_param_exceptions, true
 
@@ -49,7 +50,8 @@ post "/" do
   protected!
   param :name, String, required: true
   param :email, String, required: true, format: /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/
-
+puts "hello"
+puts param
   contents = File.open("./test-users.json").read
   parsed_contents = JSON.parse(contents)
   File.delete("./test-users.json")
