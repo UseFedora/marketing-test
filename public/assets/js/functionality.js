@@ -187,7 +187,7 @@ window.onload = function() {
 
 
   /////////// jQuery sort ///////////
-  $( ".registrants" ).sortable({
+  $( ".registrants-div" ).sortable({
     appendTo: document.body,
     axis: "y"
   });

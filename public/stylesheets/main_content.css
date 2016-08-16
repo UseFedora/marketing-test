@@ -5,13 +5,13 @@ Error: Undefined mixin 'border-radius'.
 
 1: main {
 2:   .main-content {
-3:     .registrants {
+3:     .registrants {  
 4:       @include border-radius;
-5:       background: #fff;
-6:       border: $border;
-7:       min-height: 314px;
-8:       padding: 0 30px 30px;
-9:       @media(min-width: 992px) {
+5:       
+6:       background: #fff;
+7:       border: $border;
+8:       min-height: 314px;
+9:       padding: 0 30px 30px;
 
 Backtrace:
 ./public/stylesheets/sass/main_content.scss:4:in `border-radius'
@@ -109,4 +109,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined mixin 'border-radius'.\A         on line 4 of ./public/stylesheets/sass/main_content.scss, in `border-radius'\A         from line 4 of ./public/stylesheets/sass/main_content.scss\A \A 1: main {\A 2:   .main-content {\A 3:     .registrants {\A 4:       @include border-radius;\A 5:       background: #fff;\A 6:       border: $border;\A 7:       min-height: 314px;\A 8:       padding: 0 30px 30px;\A 9:       @media(min-width: 992px) {"; }
+  content: "Error: Undefined mixin 'border-radius'.\A         on line 4 of ./public/stylesheets/sass/main_content.scss, in `border-radius'\A         from line 4 of ./public/stylesheets/sass/main_content.scss\A \A 1: main {\A 2:   .main-content {\A 3:     .registrants {  \A 4:       @include border-radius;\A 5:       \A 6:       background: #fff;\A 7:       border: $border;\A 8:       min-height: 314px;\A 9:       padding: 0 30px 30px;"; }
