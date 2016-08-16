@@ -17,8 +17,11 @@ window.onload = function() {
   }
 
   ///////// Event Listeners /////////
-  document.querySelector("#registrantForm").addEventListener("submit", function() {
-    User.validate();
+  document.querySelector("#registrantForm").addEventListener("submit", function(event) {
+    var passed = User.validate();
+    if(!passed){
+      event.preventDefault();
+    }
   });
   //clear err mssg for invalid form submission when user clicks into either field
   document.querySelector("#register-email").addEventListener("click", function (event) {
@@ -147,14 +150,14 @@ window.onload = function() {
       //since safari does not render html5 form validation error mssgs
       if(!regex.test(emailInput)  || emailInput.length === 0 || nameInput.length === 0) {
           error_field.innerHTML = "You must provide a name and valid email.";
-          event.preventDefault();
           return false;
         }
       
       //create a cookie to grab the name of the last registered user
       document.cookie = "name = " + nameInput;
-      
-      welcomeMssg = true;         
+
+      welcomeMssg = true;
+      return true;         
     }
     function deleteRegistrant() {
       var attribute     = this.getAttribute("data"),

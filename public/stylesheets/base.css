@@ -1,23 +1,23 @@
 /*
 Error: Undefined mixin 'border-radius'.
-        on line 22 of ./public/stylesheets/sass/base.scss, in `border-radius'
-        from line 22 of ./public/stylesheets/sass/base.scss
+        on line 29 of ./public/stylesheets/sass/base.scss, in `border-radius'
+        from line 29 of ./public/stylesheets/sass/base.scss
 
-17: p {
-18:   letter-spacing: 1px;
-19:   font-weight: 200;
-20: }
-21: input {
-22:   @include border-radius;
-23:   border: $border;
-24:   padding: 10px;
-25: }
-26: .hidden {
-27:   display: none;
+24: p {
+25:   letter-spacing: 1px;
+26:   font-weight: 200;
+27: }
+28: input {
+29:   @include border-radius;
+30:   border: $border;
+31:   padding: 10px;
+32: }
+33: .hidden {
+34:   display: none;
 
 Backtrace:
-./public/stylesheets/sass/base.scss:22:in `border-radius'
-./public/stylesheets/sass/base.scss:22
+./public/stylesheets/sass/base.scss:29:in `border-radius'
+./public/stylesheets/sass/base.scss:29
 /Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:351:in `block in visit_mixin'
 /Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/stack.rb:98:in `block in with_mixin'
 /Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/stack.rb:115:in `with_frame'
@@ -89,4 +89,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined mixin 'border-radius'.\A         on line 22 of ./public/stylesheets/sass/base.scss, in `border-radius'\A         from line 22 of ./public/stylesheets/sass/base.scss\A \A 17: p {\A 18:   letter-spacing: 1px;\A 19:   font-weight: 200;\A 20: }\A 21: input {\A 22:   @include border-radius;\A 23:   border: $border;\A 24:   padding: 10px;\A 25: }\A 26: .hidden {\A 27:   display: none;"; }
+  content: "Error: Undefined mixin 'border-radius'.\A         on line 29 of ./public/stylesheets/sass/base.scss, in `border-radius'\A         from line 29 of ./public/stylesheets/sass/base.scss\A \A 24: p {\A 25:   letter-spacing: 1px;\A 26:   font-weight: 200;\A 27: }\A 28: input {\A 29:   @include border-radius;\A 30:   border: $border;\A 31:   padding: 10px;\A 32: }\A 33: .hidden {\A 34:   display: none;"; }

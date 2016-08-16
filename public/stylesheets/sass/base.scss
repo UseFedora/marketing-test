@@ -10,6 +10,13 @@ $xsmall-screen: 410px;
 $small-screen: 640px;
 $medium-screen: 960px;
 
+//override FF default red outline on required fields
+input:required {
+    box-shadow:none !important;
+}
+input:invalid {
+    box-shadow:0 0 3px red;
+}
 
 body {
   background-color: #F8F8F5;
