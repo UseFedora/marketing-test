@@ -1,0 +1,112 @@
+/*
+Error: Undefined mixin 'border-radius'.
+        on line 4 of ./public/stylesheets/sass/sidebar_left.scss, in `border-radius'
+        from line 4 of ./public/stylesheets/sass/sidebar_left.scss
+
+1: main {
+2:   .sidebar-left {    
+3:     form {
+4:       @include border-radius;
+5:       
+6:       background: #fff;
+7:       border: $border;
+8:       margin-bottom: 20px;
+9:       padding: 0 30px 15px;
+
+Backtrace:
+./public/stylesheets/sass/sidebar_left.scss:4:in `border-radius'
+./public/stylesheets/sass/sidebar_left.scss:4
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:351:in `block in visit_mixin'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/stack.rb:98:in `block in with_mixin'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/stack.rb:115:in `with_frame'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/stack.rb:98:in `with_mixin'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:349:in `visit_mixin'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/stack.rb:79:in `block in with_base'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/stack.rb:115:in `with_frame'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/stack.rb:79:in `with_base'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `visit'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:433:in `block (2 levels) in visit_rule'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:433:in `map'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:433:in `block in visit_rule'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:181:in `with_environment'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:431:in `visit_rule'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/stack.rb:79:in `block in with_base'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/stack.rb:115:in `with_frame'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/stack.rb:79:in `with_base'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `visit'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:433:in `block (2 levels) in visit_rule'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:433:in `map'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:433:in `block in visit_rule'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:181:in `with_environment'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:431:in `visit_rule'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/stack.rb:79:in `block in with_base'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/stack.rb:115:in `with_frame'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/stack.rb:79:in `with_base'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `visit'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:433:in `block (2 levels) in visit_rule'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:433:in `map'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:433:in `block in visit_rule'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:181:in `with_environment'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:431:in `visit_rule'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/stack.rb:79:in `block in with_base'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/stack.rb:115:in `with_frame'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/stack.rb:79:in `with_base'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `visit'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:52:in `map'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:169:in `block in visit_children'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:181:in `with_environment'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:168:in `visit_children'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:188:in `visit_root'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:159:in `visit'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/engine.rb:381:in `_render_with_sourcemap'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/engine.rb:298:in `render_with_sourcemap'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:209:in `each'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/plugin.rb:82:in `update_stylesheets'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/plugin.rb:54:in `check_for_updates'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sass-3.4.22/lib/sass/plugin/rack.rb:51:in `call'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/tempfile_reaper.rb:15:in `call'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/lint.rb:49:in `_call'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/lint.rb:37:in `call'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/showexceptions.rb:24:in `call'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/commonlogger.rb:33:in `call'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/sinatra-1.4.7/lib/sinatra/base.rb:219:in `call'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/chunked.rb:54:in `call'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/content_length.rb:15:in `call'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/thin-1.6.3/lib/thin/connection.rb:86:in `block in pre_process'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/thin-1.6.3/lib/thin/connection.rb:84:in `catch'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/thin-1.6.3/lib/thin/connection.rb:84:in `pre_process'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/thin-1.6.3/lib/thin/connection.rb:53:in `process'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/thin-1.6.3/lib/thin/connection.rb:39:in `receive_data'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/eventmachine-1.0.4/lib/eventmachine.rb:187:in `run_machine'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/eventmachine-1.0.4/lib/eventmachine.rb:187:in `run'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/thin-1.6.3/lib/thin/backends/base.rb:73:in `start'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/thin-1.6.3/lib/thin/server.rb:162:in `start'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/handler/thin.rb:19:in `run'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/server.rb:286:in `start'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/server.rb:147:in `start'
+/Users/seinnaidess/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/bin/rackup:4:in `<top (required)>'
+/Users/seinnaidess/.rbenv/versions/2.1.2/bin/rackup:23:in `load'
+/Users/seinnaidess/.rbenv/versions/2.1.2/bin/rackup:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Undefined mixin 'border-radius'.\A         on line 4 of ./public/stylesheets/sass/sidebar_left.scss, in `border-radius'\A         from line 4 of ./public/stylesheets/sass/sidebar_left.scss\A \A 1: main {\A 2:   .sidebar-left {    \A 3:     form {\A 4:       @include border-radius;\A 5:       \A 6:       background: #fff;\A 7:       border: $border;\A 8:       margin-bottom: 20px;\A 9:       padding: 0 30px 15px;"; }
