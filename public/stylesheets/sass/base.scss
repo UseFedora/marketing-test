@@ -1,0 +1,41 @@
+$accent-green: #00A773;
+$light-grey: #FAFAFA;
+$border: 1px solid #C3C3C3;
+
+
+$h2-grey: #434343;
+
+//screen sizes
+$xsmall-screen: 410px;
+$small-screen: 640px;
+$medium-screen: 960px;
+
+//override FF default red outline on required fields
+input:required {
+    box-shadow:none !important;
+}
+input:invalid {
+    box-shadow:0 0 3px red;
+}
+
+body {
+  background-color: #F8F8F5;
+}
+p {
+  letter-spacing: 1px;
+  font-weight: 200;
+}
+input {
+  @include border-radius;
+  border: $border;
+  padding: 10px;
+}
+.hidden {
+  display: none;
+}
+.error {
+  color: red;
+  padding-top: 10px;
+  text-align: center;
+  width: 100%;
+}
